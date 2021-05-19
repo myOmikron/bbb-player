@@ -20,4 +20,5 @@ from api.views import *
 urlpatterns = [
     path('api/v1/getRecordings', GetRecordingsView.as_view()),
     path('api/v1/deleteRecordings', DeleteRecordingsView.as_view()),
+    path('api/v1/updatePublishState', UpdatePublishStateView.as_view()),
 ]
