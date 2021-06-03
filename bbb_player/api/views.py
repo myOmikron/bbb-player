@@ -10,7 +10,7 @@ from bbb_player import settings
 
 def check_params(request, salt, required_params):
     try:
-        decoded = json.loads(request)
+        decoded = json.loads(request.body)
     except json.JSONDecodeError:
         return {"success": False, "message": "JSON could not be decoded", "status": 400}
     if "checksum" not in decoded:
