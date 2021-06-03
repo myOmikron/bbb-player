@@ -14,8 +14,8 @@ def create_recording_xml(args):
     root = tree.getroot()
 
     recording = ElementTree.Element("recording")
-    recordingID = ElementTree.SubElement(recording, "id")
-    recordingID.text = root.find("recordingID").text
+    recordingID = ElementTree.SubElement(recording, "recordingID")
+    recordingID.text = root.find("id").text
     meetingID = ElementTree.SubElement(recording, "meetingID")
     meetingID.text = root.find("meeting").attrib["externalId"]
     internalMeetingID = ElementTree.SubElement(recording, "internalMeetingID")
