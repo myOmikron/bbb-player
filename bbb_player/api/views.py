@@ -36,7 +36,7 @@ class GetRecordingsView(views.View):
         if not isinstance(decoded["recordings"], list):
             return {"success": False, "message": "Parameter recordings is not a list", "status": 400}
         if len(decoded["recordings"]) == 0:
-            files = [os.path.join(x, "recording.xml") for x in os.listdir("/var/bigbluebutton/published/presentation/")]
+            files = [os.path.join("/var/bigbluebutton/published/presentation/", x, "recording.xml") for x in os.listdir("/var/bigbluebutton/published/presentation/")]
         else:
             files = [os.path.join("/var/bigbluebutton/published/presentation", x, "recording.xml") for x in decoded["recordings"]]
         try:
