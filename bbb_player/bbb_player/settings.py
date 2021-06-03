@@ -125,3 +125,4 @@ STATIC_ROOT = "/var/www/html"
 RCP_SECRET = "change_me"
 RCP_TIMEDELTA = 5
 
+HOSTNAME = ""
