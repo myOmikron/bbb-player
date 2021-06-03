@@ -36,18 +36,18 @@ def create_recording_xml(args):
     playback = ElementTree.SubElement(recording, "playback")
     format = ElementTree.SubElement(playback, "format")
     typee = ElementTree.SubElement(format, "type")
-    typee.text = root.find("//format").text
+    typee.text = root.find("playback/format").text
     url = ElementTree.SubElement(format, "url")
     url.text = f"https://{args.hostname}/playback/presentation/2.3/{args.internal_meeting_id}"
     processingTime = ElementTree.SubElement(format, "processingTime")
-    processingTime.text = root.find("//processing_time").text
+    processingTime.text = root.find("playback/processing_time").text
     length = ElementTree.SubElement(format, "length")
-    length.text = int(int(root.find("//duration").text)/1000//60)
+    length.text = str(int(int(root.find("playback/duration").text)/1000//60))
     size = ElementTree.SubElement(format, "size")
-    size.text = root.find("//size").text
+    size.text = root.find("playback/size").text
     preview = ElementTree.SubElement(format, "preview")
     images = ElementTree.SubElement(preview, "images")
-    old_img = root.findall("//image")
+    old_img = root.findall("playback/extensions/preview/images/image")
     for img in old_img:
         image = ElementTree.SubElement(images, "image")
         image.attrib["alt"] = img.attrib["alt"]
