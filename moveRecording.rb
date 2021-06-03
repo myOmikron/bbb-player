@@ -9,6 +9,6 @@ opts = Trollop::options do
 end
 meeting_id = opts[:meeting_id]
 
-system("/bin/bash moveRecording.sh " + meeting_id)
+system("/bin/bash /usr/local/bigbluebutton/core/scripts/post_publish/moveRecording.sh " + meeting_id)
 
 exit 0
