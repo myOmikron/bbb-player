@@ -13,7 +13,7 @@ Group=bbb-player
 # see http://0pointer.net/blog/dynamic-users-with-systemd.html
 RuntimeDirectory=gunicorn
 WorkingDirectory=/home/bbb-player/bbb-player/bbb_player/
-ExecStart=/usr/bin/gunicorn bbb_player.wsgi
+ExecStart=/home/bbb-player/bbb-player/venv/bin/gunicorn bbb_player.wsgi
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=mixed
 TimeoutStopSec=5
