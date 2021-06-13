@@ -6,14 +6,14 @@ After=network.target
 [Service]
 Type=notify
 # the specific user that our service will run as
-User=bbb-loadbalancer
-Group=bbb-loadbalancer
+User=bbb-player
+Group=bbb-player
 # another option for an even more restricted service is
 # DynamicUser=yes
 # see http://0pointer.net/blog/dynamic-users-with-systemd.html
 RuntimeDirectory=gunicorn
-WorkingDirectory=/home/bbb-loadbalancer/bbb_loadbalancer/
-ExecStart=/usr/bin/gunicorn bbb_loadbalancer.wsgi
+WorkingDirectory=/home/bbb-player/player/
+ExecStart=/usr/bin/gunicorn bbb_player.wsgi
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=mixed
 TimeoutStopSec=5
