@@ -20,7 +20,7 @@ def check_params(request, salt, required_params):
         return {"success": False, "message": "JSON could not be decoded", "status": 400}
     if "checksum" not in decoded:
         return {"success": False, "message": "Missing checksum parameter", "status": 400}
-    if not validate_checksum(decoded, settings.RCP_SECRET, salt, time_delta=settings.RCP_TIMEDELTA):
+    if not validate_checksum(decoded, settings.SHARED_SECRET, salt, time_delta=settings.SHARED_SECRET_TIMEDELTA):
         return {"success": False, "message": "Checksum was not correct", "status": 401}
     for entry in required_params:
         if entry not in decoded:

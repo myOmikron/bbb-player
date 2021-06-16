@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = "/var/www/html"
 
-RCP_SECRET = "change_me"
-RCP_TIMEDELTA = 5
+SHARED_SECRET = "change_me"
+SHARED_SECRET_TIMEDELTA = 5
 
 HOSTNAME = ""
