@@ -63,7 +63,7 @@ def create_recording_xml(args):
 def move_files():
     if os.path.exists(dest_dir):
         shutil.rmtree(dest_dir)
-    shutil.copy(working_dir, dest_dir)
+    shutil.copytree(working_dir, dest_dir)
     shutil.rmtree(working_dir)
 
 
