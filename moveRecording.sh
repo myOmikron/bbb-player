@@ -17,5 +17,8 @@ published_files="/var/bigbluebutton/published/presentation/$meeting_id/"
 rsync -a "$published_files" $rsync_path"/$meeting_id"
 curl -H "Content-Type: application/json" -d '{"internalMeetingId": "'$meeting_id'", "checksum": "'$(python3 -c "import rc_protocol; print(rc_protocol.get_checksum({\"internalMeetingId\": \"$meeting_id\"}, \"$rcp_secret\", salt=\"updatePublishState\"))")'"}' "$player_server/api/v1/updatePublishState"
 
-# Delete files locally
-rm -r "$published_files"
+exit_status=$?
+if [ $exit_status -eq 0 ]; then
+  # Delete files locally
+  rm -r "$published_files"
+fi
