@@ -54,7 +54,7 @@ def create_recording_xml(args):
         image.attrib["height"] = img.attrib["height"]
         image.attrib["width"] = img.attrib["width"]
         url = img.text.lstrip("http://").lstrip("https://").split("/")[1:]
-        image.text = f"https://{args.hostname}/{url}"
+        image.text = f"https://{args.hostname}/{'/'.join(url)}"
 
     # Save XML
     ElementTree.ElementTree(recording).write(os.path.join(working_dir, "recording.xml"))
